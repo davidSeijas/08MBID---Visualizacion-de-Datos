@@ -1,0 +1,575 @@
+<div id="app">
+  <span class="negrita">Nombre: </span> David Seijas Pérez
+  <br />
+  <span class="negrita">URL:</span>
+  <a href="https://js-wmqucr.stackblitz.io" target="_blank">
+    https://js-wmqucr.stackblitz.io
+  </a>
+  <br />
+  <span class="negrita">Github:</span>
+  <a
+    href="https://github.com/davidSeijas/08MBID---Visualizacion-de-Datos"
+    target="_blank"
+  >
+    https://github.com/davidSeijas/08MBID---Visualizacion-de-Datos
+  </a>
+  <br />
+  <span class="negrita">Google Colab:</span>
+  <a
+    href="https://colab.research.google.com/drive/1WMaMxKoP73fYaegVGdxG7mfjE5T10aa1?usp=sharing"
+    target="_blank"
+  >
+    https://colab.research.google.com/drive/1WMaMxKoP73fYaegVGdxG7mfjE5T10aa1?usp=sharing
+  </a>
+  <br />
+  <span class="negrita">DataSet:</span>
+  <a
+    href="https://www.kaggle.com/datasets/chicago/chicago-crime"
+    target="_blank"
+  >
+    https://www.kaggle.com/datasets/chicago/chicago-crime
+  </a>
+  <br />
+  <span class="negrita">Observaciones:</span> El dataset se descarga desde los
+  enlaces que hay en la página de Kaggle, que te redirigen a la página de
+  descarga ubicada en la web
+  <a href="https://data.cityofchicago.org/" target="_blank">
+    https://data.cityofchicago.org/
+  </a>
+  <br /><br /><br />
+
+  <span class="titulo">0. ACALARACIONES</span>
+  <br /><br />
+  Antes de comenzar a exponer cuáles son los objetivos de este trabajo me
+  gustaría hacer una aclaración por la que se guiará todo el desarollo del
+  trabajo. Este dataset original contenía datos de crímenes en la ciudad de
+  Chicago entre los años 2001 y 2023 (contenía datos actuales). Sin embargo, el
+  volumen de este dataset, contenía más de 7 millones de observaciones, me ha
+  obligado a reducirlo para poder hacer un manejo con algunas herramienta de
+  manera más eficaz y rápida (por ejemplo con Python hubiese podido manejar este
+  volumen, aunque con un aumento del tiempo de respeusta, pero con Google Sheets
+  no y quería tener el mismo dataset para todas las herramientas).
+  <br /><br />
+  Aún así tanto mi audiencia y mi objetivo están planteados como si hubiese
+  podido realziar gráficos de todos los datos que conteía ese dataset, es decir,
+  como si tuviesémos datos desde el año 2001 hasta el momento actual. Por esta
+  razón, aunque plantea evoluciones entre estos años me gustaría que se
+  considerasen como si fuese hasta la actualidad por lo que conseraré que
+  estamos en el año 2006, ya que la creación de gráficos hubiese sido la misma,
+  simplemente cambia la cantidad de datos.
+  <br /><br />
+  Por último, me gustaría añadir que los datos de 2001 debían estar mal
+  informados porque hay una clara diferencia entre la cantidad de datos del año
+  2001 y el resto de años, simplemente he asumido estos datos como buenos porque
+  no influenciaban a la hora de la realización de los gráficos; para que se
+  tenga en cuenta a la hora de la visualziación de los gráficos.
+  <br /><br /><br />
+  <span class="titulo">1. INTRODUCCIÓN</span>
+  <br /><br />
+  Este trabajo consiste en una StoryTelling formado por diversos gráficos sobre
+  los crímenes cometidos en la ciudad de Chicago entre los años 2001 y 2005, es
+  decir, tiene datos de los crímenes cometidos hasta la actualidad.
+  <br /><br />
+  Este trabajo va dirigido a las autoridades y organismos encargados de la
+  seguridad pública de la ciudad de Chicago. El objetivo de estos gráficos será
+  proporcionar información detallada sobre la evolución de los principales
+  crímenes en Chicago durante los útlimos años. Además, destacar las tendencias
+  y patrones específicos de los crímenes, así como los porcentajes de arrestos
+  asociados. Esto podría ayudar a las autoridades a identificar áreas
+  problemáticas y enfocar los esfuerzos en la prevención y el combate de los
+  delitos más frecuentes.
+  <br /><br />
+  Con estos gráficos y esta presentación se pretende conseguir una mejora en la
+  organización de la seguridad de la ciudad y pdoer centrarse en los aspectos
+  más importantes para pdoer reducir el íncide de criminalidad de la ciudad.
+  <br /><br />
+  Para concluir la presentación, cabe destacar que los gráficos han sido
+  alimentados con datos extraídos de una fuente fiable como es la base de datos
+  "Crimes 2001 to Present" de
+  <a href="https://data.cityofchicago.org/" target="_blank">
+    https://data.cityofchicago.org/ </a
+  >. <br /><br /><br />
+  <span class="titulo">2. METODOLOGÍA</span>
+  <br /><br />
+  Para alcanzar el objetivo descrito anteriormente se han desarrollado gráficos
+  usando las herramientas "Google Sheets", "Python en Google Colab" y "Qlick
+  Sense". La elección de estas herramientas se ha debido a los siguientes
+  motivos:
+  <br /><br />
+  - <span class="negrita">Google Sheets: </span> Google Sheets fue la primera
+  herramienta que utilicé debido a su accesibilidad y facilidad para la creación
+  de gráficos sencillos. Además de que es una herramienta sencilla, presenta
+  muchos diseños de gráficos distintos y así pude ubicarme con el dataset y
+  conocer más el objetivo que pretendía alcanzar. Sin embargo, cuando quise
+  utilizar gráficos más complejos tuve que cambiar de herramienta debido a que
+  Google Sheets no está pensada para gráficos complejos. Otro problema que
+  encontré fue la lentitud a la hora de procesar los gráficos debido a que el
+  volumen de mis datos era bastante grande y no los soportaba del todo bien.
+  <br />
+  <br />
+  - <span class="negrita">Python: </span> Fue la segunda herramienta que utilicé
+  ya que, debido a mi objetivo, quería realizar gráficos más complejos, además
+  de mapas y gráficos interactivas y esta herramienta me era más sencilla de
+  utilizar para dicho propósito. Quería alcazar gráficos más personalizados,
+  además de más complejos, y Python me permitía esto. Por último, sabía que iba
+  a poder procesar y diseñar los gáficos de forma mucho más rápido ya que es una
+  herramienta que soporta un gran volumen de datos. Por suerte, tengo
+  experiencia programando y eso me hice que no me costara adaptarme y crear
+  visualziaciones de manera veloz, pero es cierto que para gente sin experiencia
+  puede ser bastante complicada de usar. <br /><br />
+  - <span class="negrita">Qlick Sense: </span> Por útlimo, usé la herramienta de
+  Qlick. Lo malo de esta herramienta es que es un poco más compleja ya que
+  ofrece muchas alternativas y, además, es de pago. Pude usarla gracis a una
+  prueba gratuita y tampoco pude profundizar tanto como quisiera en los gráficos
+  ya que es cierto que no era lo más intuitiva. Sin embargo, tenía claro que
+  quería utilziar esta herramienta ya que era un reto nueevo, aún por conocer, y
+  que me permitía el diseño de un dashboard interactivo de una forma seniclla,
+  dentro de lo que cabe. <br /><br />
+  A continuación, dejo una tabla con los puntos fuertes y débiles de cada
+  herramienta utilizada, con sus respectivas referencias.
+  <br /><br />
+  <table>
+    <tr>
+      <td><span class="negrita">Herramienta</span></td>
+      <td><span class="negrita">Puntos Fuertes</span></td>
+      <td><span class="negrita">Puntos Débiles</span></td>
+    </tr>
+    <tr>
+      <td><span class="negrita">Google Sheets</span></td>
+      <td>
+        Es una herramienta muy accesible para usuarios de todos los niveles de
+        habilidad. Su interfaz intuitiva y sus funciones básicas lo hacen fácil
+        de usar (Palma et al., 2021).
+      </td>
+      <td>
+        A diferencia de otras herramientas de visualización de datos, como
+        Python o Qlik Sense, Google Sheets puede tener limitaciones en la
+        personalización de gráficos. Esto puede hacer que sea difícil crear
+        gráficos altamente personalizados y complejos (Strauss, 2023).
+      </td>
+    </tr>
+    <tr>
+      <td><span class="negrita">Google Sheets</span></td>
+      <td>
+        Herramienta ideal para crear gráficos básicos y simples que se utilizan
+        comúnmente en informes y presentaciones. Puede crear gráficos de barras,
+        gráficos circulares, gráficos de líneas, entre otros (Rosa & Rivera,
+        2016)
+      </td>
+      <td>
+        Limitaciones en la cantidad de datos que puede manejar. Si se están
+        procesando grandes conjuntos de datos, es posible que se experimente una
+        disminución en la velocidad y el rendimiento (Urbina, 2018)..
+      </td>
+    </tr>
+    <tr>
+      <td><span class="negrita">Google Sheets</span></td>
+      <td>
+        Accesibilidad y almacenamiento en la nube, lo que permite el acceso
+        desde cualquier dispositivo con conexión a internet (López, 2017).
+      </td>
+      <td>
+        Es menos estable que otras herramientas cuando se trabaja con grandes
+        conjuntos de datos, lo que puede llevar a la pérdida de datos o al
+        tiempo de inactividad (Strauss, 2023).
+      </td>
+    </tr>
+    <tr>
+      <td><span class="negrita">Python</span></td>
+      <td>
+        Variedad de librerías especializadas en gráficos como Matplotlib,
+        Seaborn, Plotly y Bokeh, que permiten la creación de gráficos complejos
+        e interactivos (Koehrsen, 2019).
+      </td>
+      <td>
+        Tiene una variedad significativa de librerías de gráficos, es posible
+        que no ofrezca tantas opciones como otras herramientas de visualización
+        de datos (Heer & Bostock, 2010).
+      </td>
+    </tr>
+    <tr>
+      <td><span class="negrita">Python</span></td>
+      <td>
+        Capacidad para automatizar el proceso de creación de gráficos, lo que
+        ahorra tiempo y aumenta la eficiencia en el análisis de datos (Koehrsen,
+        2019).
+      </td>
+      <td>
+        Python presenta barreras de entrada para aquellos que no tienen
+        experiencia en programación. Necesita de unos conocimientos básicos
+        sobre ello (Rodríguez, 2016).
+      </td>
+    </tr>
+    <tr>
+      <td><span class="negrita">Python</span></td>
+      <td>
+        Flexibilidad en la personalización de gráficos, que permite a los
+        usuarios ajustar aspectos como colores, tipografía, etiquetas y leyendas
+        para adaptarlos a sus necesidades específicas(Koehrsen, 2019).
+      </td>
+      <td>
+        Es menos eficiente que otras herramientas de visualización de datos en
+        términos de velocidad (Manrique, 2020).
+      </td>
+    </tr>
+    <tr>
+      <td><span class="negrita">Qlick Sense</span></td>
+      <td>
+        Permite la creación de dashboards altamente interactivos e intuitivos
+        que permiten a los usuarios explorar y analizar datos de manera fácil y
+        eficiente (Fernández, 2022).
+      </td>
+      <td>
+        Es una herramienta de visualización de datos de pago, lo que significa
+        que su costo puede ser una barrera para algunos usuarios. Aunque hay una
+        versión gratuita disponible, la mayoría de las funciones avanzadas solo
+        están disponibles en la versión de pago. (Yépez, 2020).
+      </td>
+    </tr>
+    <tr>
+      <td><span class="negrita">Qlick Sense</span></td>
+      <td>
+        Permite la exportación de dashboards y visualizaciones en una variedad
+        de formatos, incluyendo PDF, Excel y formatos de imagen. Esto significa
+        que los usuarios pueden compartir fácilmente sus análisis y
+        visualizaciones con otras personas dentro y fuera de la organización
+        (Fernández, 2022).
+      </td>
+      <td>
+        Hay un límite de caracteres para las expresiones que se utilizan en la
+        creación de gráficos. Este límite puede variar dependiendo de la versión
+        de Qlik Sense que se esté utilizando (Yépez, 2020).
+      </td>
+    </tr>
+    <tr>
+      <td><span class="negrita">Qlick Sense</span></td>
+      <td>
+        Ofrece acceso a través de API, lo que permite a los usuarios integrar
+        fácilmente las visualizaciones y dashboard en otras aplicaciones y
+        sistemas. También se puede acceder a través de dispositivos móviles, lo
+        que significa que los usuarios pueden acceder desde sus teléfonos y
+        tabletas en cualquier momento y desde cualquier lugar (Fernández, 2022).
+      </td>
+      <td>
+        Puede tener una curva de aprendizaje empinada para los usuarios nuevos o
+        principiantes (Fernández, 2022).
+      </td>
+    </tr>
+  </table>
+  <br /><br /><br />
+  <span class="titulo">3. RESULTADOS</span>
+  <br /><br />
+  Lo primero que me gustaría plantear a la audiencia es: ¿Cuántos crímenes han
+  sucedido entre el año 2001 y 2005 en Chicago y qué porcentaje de esos han
+  acabado con el delincuente arrestado?
+  <br /><br />
+  <span class="imagen">Imagen 1.</span>
+  <span class="cursiva">Desarrollado en Google Sheets</span>
+  <br />
+  <iframe
+    width="600"
+    height="400"
+    seamless
+    frameborder="0"
+    scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQc6Z2hSF0X4-ien5RyNUtL8AF88b5fgij1AVtnXR5CN-uWwLD5EvAGtrTpUPs1drGZiIBzoi1M48Sf/pubchart?oid=29151248&format=interactive"
+  ></iframe>
+  <br />
+  Viendo estos datos demoledores, en los que de cada 10 crímenes cometidos en la
+  ciudad más de 7 salen con sus delicuentes impolutos, podríamos preguntarnos si
+  en los últimos años se ha producido un aumento o bajada de los crímenes y,
+  además, de los arrestos producidos, para ver si hemos obtenido alguna mejora
+  con el desarrollo de los últimos años. La respuesta es NO.
+  <br /><br />
+  <span class="imagen">Imagen 2.</span>
+  <span class="cursiva">Desarrollado en Google Sheets</span>
+  <br />
+  <iframe
+    width="650"
+    height="371"
+    seamless
+    frameborder="0"
+    scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQc6Z2hSF0X4-ien5RyNUtL8AF88b5fgij1AVtnXR5CN-uWwLD5EvAGtrTpUPs1drGZiIBzoi1M48Sf/pubchart?oid=547964896&format=interactive"
+  ></iframe>
+  <br />
+  En este segundo gráfico (gráfico de líneas, el mejor gráfico para representar evolución o tendencias) podemos ver la evolución que han tenido tanto lso
+  crímenes como los arrestos en estos últimos años. Quitanto el caso especial
+  del año 2001, vemos que del año 2002 al 2003 se incrementaron los crímenes,
+  habiendo unos 10 mil más, quedándose casi costante desde entonces
+  <br /><br />
+  Ya hemos visto que queda mucho por mejorar en el tema de la seguridad en
+  cuanto a crímenes. Entonces empecemos por estudiar información de años atrás
+  para en qué crímenes debemos enfocarnos y cuánto. Entonces la siguiente
+  pregunta que quiero preguntar es, ¿en qué momento, diamos meses, del año
+  suceden más crímenes? Si supiéramos cuando hay más crímenes, podríamos
+  centrarnos en reforzar la seguridad esos meses.
+  <br /><br />
+  <span class="imagen">Imagen 3.</span>
+  <span class="cursiva">Desarrollado en Google Sheets</span>
+  <br />
+  <iframe
+    width="650"
+    height="371"
+    seamless
+    frameborder="0"
+    scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQc6Z2hSF0X4-ien5RyNUtL8AF88b5fgij1AVtnXR5CN-uWwLD5EvAGtrTpUPs1drGZiIBzoi1M48Sf/pubchart?oid=1481350203&format=interactive"
+  ></iframe>
+  <br />
+  Lo que podemos observar en este gráfico es la cantidad de crímenes cometidos
+  en cada mes del año desde 2001, además del número de ellos que acabaron en
+  arresto en cada mes. Como podemos ver los meses de verano y próximos es cuando
+  más crímenes se dan, así que deberíamos esforzar en reforzar la seguridad esos
+  meses, puesto que los crímenes crecen considerablemente, pero no los arrestos.
+  <br /><br />
+  Ahora, no vale solo con aumentar la seguridad, hay que saber dónde
+  focalizarse, por eso la siguiente pregunta que quiero plantear es, ¿cuáles son
+  los 10 crímenes más cometidos a lo largo de estos años? ¿y cuáles son los 10
+  donde se han hecho más arrestos?
+  <br /><br />
+  <span class="imagen">Imagen 4.</span>
+  <span class="cursiva">Desarrollado en Google Sheets</span>
+  <br />
+  <iframe
+    width="1000"
+    height="400"
+    seamless
+    frameborder="0"
+    scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQc6Z2hSF0X4-ien5RyNUtL8AF88b5fgij1AVtnXR5CN-uWwLD5EvAGtrTpUPs1drGZiIBzoi1M48Sf/pubchart?oid=775588153&format=interactive"
+  ></iframe>
+  <br /><br />
+  <span class="imagen">Imagen 5.</span>
+  <span class="cursiva">Desarrollado en Google Sheets</span>
+  <br />
+  <iframe
+    width="1000"
+    height="450"
+    seamless
+    frameborder="0"
+    scrolling="no"
+    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQc6Z2hSF0X4-ien5RyNUtL8AF88b5fgij1AVtnXR5CN-uWwLD5EvAGtrTpUPs1drGZiIBzoi1M48Sf/pubchart?oid=1769036372&format=interactive"
+  ></iframe>
+  <br />
+  Estos gráficos (de columnas, perfectos para realizar comparaciones) exponen los 10 tipos de crímenes con más casos en estos 5 años
+  y sus respectivos arrestos; y los 10 tipos de crímenes donde se ha arrestado a
+  más delicuentes con sus respectivos número de casos.
+  <br /><br />
+  Observando estas imágenes podemos llegar a la conclusión que hay que reforzar
+  especialmente los
+  <span class="cursiva">robos y las agresiones o daños criminales</span>, ya que
+  han sido los crímenes más cometidos estos últimos años, pero el número de
+  arrestos sucedidos no llega a un número aceptable. Igual los dos últimos
+  crímenes son más difíciles de predecir y actuar contra ellos, pero hay un
+  grave porblema con los robos que se debe afrontar. Por el otro lado, podemos
+  observar que en el seguimiento de criminales de
+  <span class="cursiva">narcotráficos</span> hay un gran desempeño. <br /><br />
+  Estos datos están muy bien y ya tenemmos una idea de los crímenes en los que
+  hay que prestar más atención y los meses en los que habría que reforzar la
+  seguridad, sin embargo, la ciudad es muy grande y hay que saber dónde. Por ello mi siguiente gráfico responde esa pregunta de ¿dónde han sucedido los crímenes en los últimos 5 años?
+  <br /><br />
+  <span class="imagen">Imagen 6.</span>
+  <span class="cursiva">Desarrollado en Python.</span> En el enlace a Google Colab se puede ver el mapa y sus interacciones.
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235164446-6b291577-cbc3-40af-b96b-a1edc3d2ec0e.jpg" alt="Imagen 6" width="700">
+  <br /><br />
+  En este mapa podemos ver marcados en la ciudad de Chicago todos los crímenes cometidos en estos 5 años. Los crímenes que acabaron con arresto salen marcados en verde, mientras que los que no están en rojo. Además, si pasas por encima de cada crimen te confirma el número del caso y sí acabó en arresto o no, mientras que si pinchamos en un crimen nos saca la información del año, mes, día y hora en los que sucedió.
+  </br>  </br>
+  Ahora que sabemos en qué momento del año hay reforzar la seguridad y sabemos en qué zonas sucedieron más crímenes los últimos 5 años y, por tanto, es más probable que vuelvan a suceder en el futuro, nos deberíamos preguntar en qué momentos del día suceden más crímenes. Y voy más allá, no sirve de nada saber que a las 13:00 suceden más crímenes de narcóticos, pero reforzamos para estar atentos a robos. Por tanto, otra de las preguntas importantes que deberíamos plantearnos es ¿en qué momento del día suceden más crímenes de cada tipo? A estas dos preguntas dan respuesta los siguientes gráficos.
+  <br /><br />
+  <span class="imagen">Imagen 7.</span>
+  <span class="cursiva">Desarrollado en Python.</span> 
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235165373-22e1bd69-e7e2-471e-918c-fee9d2ee438d.jpg" alt="Imagen 7" width="600">
+  <br /><br />
+  <span class="imagen">Imagen 8.</span>
+  <span class="cursiva">Desarrollado en Python.</span>
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235165418-dbd16d16-1339-4d47-8905-5d5cb8af2ec3.jpg" alt="Imagen 8" width="600">
+  <br /><br />
+  En la Imagen 7 podemos observar como, aunque nos pueda sorprender, la hora del día donde más crímenes se cometieron fue las 12 del mediodía. Sin embargo, como hemos mencionado esta imagen tampoco nos aportanto tanto valor, sino que tenemos que fijarnos en la segunda.
+  <br /><br />
+  En la Imagen 8 podemos ver un gráfico de dispersión, elegido pues es ideal para representar 3 variables y sus relaciones, que representa la cantidad de crímenes cometidos (mayor tamaño de círculo, mayor número de crímenes cometidos) por tipos de crimen y en cada hora del día. Los círculos resaltados de color rojo representar la hora del día en la que más crímenes se cometió de cada uno de los tipos.
+  <br /><br />
+  De esta manera, si nos fijamos en los robos, recordemos que era el crimen más cometido en los últimos 5 años, cuando más se comete es a las 12 del mediodía, mientras que las agresiones sexuales se cometen más por las noches, en especial a las 12 de la noche.
+  <br /><br />
+  Me gustaría continuar nuestro análisis de los crímenes centrándonos concretamente en el último año, el año 2005. Ya que son los datos más recientes, me gustaría realizar el estudio de cuáles fueron los crímenes más cometidos para ver si la tendencia está cambiando o sigue siendo similar a la global de los últimos años.
+  <br /><br />
+  <span class="imagen">Imagen 9.</span>
+  <span class="cursiva">Desarrollado en Python.</span> 
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235165460-c202a830-b22d-4ca1-a12e-d0d601831f1c.jpg" alt="Imagen 9" width="600">
+  <br /><br />
+  En la Imagen 9, gráfico de barras elegido para comparar los crímenes más cometidos en el año 2005, podemos ver se mantienen los mismo crímenes como los más comunes en el último como en la visión global. Visto esto, me gustaría plantear a la audiencia, ¿cómo ha sido el balance de estos crímenes en los últimos 5 años (obviaremos 2001 por falta de datos) y cuántos se han cometido en el ámbito doméstico?.
+  <br /><br />
+  <span class="imagen">Imagen 10.</span>
+  <span class="cursiva">Desarrollado en Python.</span> 
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235165664-21d82bda-0391-413d-abb1-99568a0efbbc.png" alt="Imagen 10" width="600">
+  <br /><br />
+  El gráfico correspondiente a la Imagen 10 es una matriz de gráficos que representan cuántos crímenes acabaron en arresto y cuántos no a lo largo de los últimos según el tipo de crímen y si este se realizó en ámbito doméstico o no. Estos gráficos son interesentas a la hora de realizar comparaciones separando entre una o variables variables que consideramos significativas.
+  <br /><br />
+  Como entre los 4 tipos más comunes aparecen los robos y agresiones me resulta interesante saber cuántos se producían en un entorno familiar para saber cómo abordar la seguridad y evitar que se comentan tantos crímenes. De hecho, observamos que hay un gran número de agresiones domésticas que habrá que tener en cuenta y considerar para evitar que se realicen.
+  <br /><br />
+  Para seguir con el análisis de los crímenes del último año, he realizado dos gráficos interactivos que muestran la evolución tanto mensual como diaria de los 4 crímenes más cometidos este año. Con estos gráficos me gustaría responder a cuándo se han producido los picos de más crímenes de caada tipo en el último año para tratas de evitarlos en años venideros.
+  <br /><br />
+  <span class="imagen">Imagen 11.</span>
+  <span class="cursiva">Desarrollado en Python.</span> Puede verse la interacción en Google Colab.
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235165698-3141c53b-3833-4abd-9816-3e5e6eeaf757.jpg" alt="Imagen 11" width="700">
+  <br /><br />
+  <span class="imagen">Imagen 12.</span>
+  <span class="cursiva">Desarrollado en Python.</span> Puede verse la interacción en Google Colab.
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235165742-f697c4fe-9e1e-4908-b1e4-406f245c1d6d.jpg" alt="Imagen 12" width="700">
+  <br /><br />
+  Aunque a primera vista, sobre todo la Imagen 12, puedan parecer confusos, es un gráfico interactivo que permite hacer zoom y sacar la información de cuántos crímenes sucedieron cada día en concreto, esclareciendo mucho la pregunta que nos hacíamos.
+  <br /><br />
+  Para concluir el análisis de los crímetes cometidos en la ciudad de Chicagi en los últimos, me he querido centrar en un tipo de crimen que ha sucedido mucho para la gravedad que conlleva y que se ha saldado con muy pocos arrestos, con el problema que esto supone. Este crimen son las agresiones sexuales. Me gustaría, además, centrarme en este delito pues con los años se está normalizando. 
+  <br /><br />
+  Por esta razón, he desarrollado un dashborad que abordea esta problemática. Este dashboard da respuesta a unas preguntas que creo necesaria que se haga la audiencia para poder evitar estos delitos desde ya: ¿cuántos delitos de agresión sexual se han cometido en los últimos años? y ¿cuántos de estos han acabado con arresto del agresor?, ¿cómo han evolucionado las agresiones sexuales desde el 2001?, ¿en qué época del año se cometen más? y ¿en qué momentos del días?
+  <br /><br />
+  <span class="imagen">Imagen 13.</span>
+  <span class="cursiva">Desarrollado en Qlick.</span> 
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235166261-7dfc0f4d-7362-4c37-b19a-725d36eec4b7.jpg" alt="Imagen 13" width="350">
+  <br /><br />
+  <span class="imagen">Imagen 14.</span>
+  <span class="cursiva">Desarrollado en Qlick.</span> 
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235166319-40e8a2d8-7efd-4457-b8a3-1b3e290e5465.jpg" alt="Imagen 14" width="350">
+  <br /><br />
+  <span class="imagen">Imagen 15.</span>
+  <span class="cursiva">Desarrollado en Qlick.</span> 
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235166488-6a4699a0-891e-447f-b9a2-44c7973e3462.png" alt="Imagen 15" width="600">
+  <br /><br />
+  <span class="imagen">Imagen 16.</span>
+  <span class="cursiva">Desarrollado en Qlick.</span> 
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235166541-2da8f8c4-98bb-4767-ab33-70c8d6e5d1af.jpg" alt="Imagen 16" width="600">
+  <br /><br />
+  <br /><br />
+  <span class="imagen">Imagen 17.</span>
+  <span class="cursiva">Desarrollado en Qlick.</span> 
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235166573-ff5acf36-b82c-4bdd-900c-65818fc5de7a.jpg" alt="Imagen 17" width="600">
+  <br /><br />
+  Observando estas imágenes podemos concluir que esto es un grave problema a resolver. Si nos fijamos en las Imágenes  16 y 17, las agresiones sexuales suceden más en meses de verano y durante las horas de la madrugada. Podemos llegar a la conclusión que en meses donde se producen más fiestas y a las horas donde la gente está en la calle es cuando más se producen estos delitos. Observando estos datos, es claro que hay que reforzar la seguridad estos meses a estas horas de la madrugada.
+  <br /><br />
+  Sin embargo, ¿dónde se producen estos delitos? Muchas veces estos delitos se suceden en calles oscuras o de poca afluencias. Para dar respuesta a esta cuestión, he realizado un último gráfico que es un mapa donde se han producido los crímenes sexuales (resaltando en verde los que acabaron en arresto y en rojo los que no). Además, como he hecho en el mapa anterior, al pasar por encima de cada punto nos da la información concreta de cada crimen.
+  <br /><br />
+  <span class="imagen">Imagen 18.</span>
+  <span class="cursiva">Desarrollado en Qlick.</span> 
+  <br /><br />
+  <img src="https://user-images.githubusercontent.com/93650881/235166611-68c0e3b1-808a-4ed3-8728-3aa8cb9510df.jpg" alt="Imagen 18" width="700">
+  <br /><br />
+  Este dashboard que he realizado es interactiva y si seleccionamos datos de algunos de los gráficos se filtra en todos los gráficos y muestra la información de lo que estamos seleccionando exclusivamente (se ve el comportamiento en el vídeo adjunto). Además, se puede modificar el filtro para visulizar la información correspondiente a otros tipos de crímenes de forma muy sencilla.
+  <br /><br />
+  A todas estas preguntas dan respuesta, respectivamente, los siguientes gráficos incluidos en el dashboard. 
+  <br /><br /><br />
+  <span class="titulo">4. CONCLUSIONES</span>
+  <br /><br />
+  Para concluit con este trabajo me gustaría comentar que yo creo que los objetivos se han cumplido concres. He descubierto nuevas herramientas, además de aprender nuevos gráficos, entre ellos gráficos itneractivos, de herramientas que ya conocía como Python. Además, me he dado cuenta de la potencia de Python como herramienta de visualización a pesar de nos er una herramienta específica para esta tarea. Comentar también que la herramienta de Qlick me ha resultado muy interesante y muy útil. Creo que tiene un potencial enorme tanto para desarrollar gráficos interactivos como para personalizar diseños de dashboards.
+  <br /><br />
+  He disfrutado muchísimo realizando este trabajo, pensando en qué gráficas realziar e investigando cómo personalizar estas o cómo ir un pasito más allá para que representen los qué quiero decir exactamente. Desarrollando esta memoria me he dado cuenta de la verdadera importancia de fijar el objetivo de las visualizaciones y la audicencia a quien va dirigidad.
+  <br /><br />
+  Por último, me gustaría comentar ciertos aspectos que pueden quedarse como puntos a mejorar en el futuro. El primero, es poder integrar los gráficos de Python y de Qlick en esta memoria final, investigando sé que con Qlick sería posible aunque por falta de tiempo no he podido averiguar cómo y si es necesaria la versión de pago. Además, me hubiese gustado tocar otras herramientas que, por falta de tiempo como PowerBI, o por imposibilidad debido a sus característias como DataWrrapper, no he llegado a usar en este trabajo. Considero que cuando te pones a realizar gráficos más complejos por tu cuenta es cuando realmente aprender a usar a fondo una herramienta, que es lo que me ha ocurrido con las que he usado yo.
+  <br /><br /><br />
+  <span class="titulo">5. REFERENCIAS</span>
+  <br /><br />
+  Fernández, O. (2022).
+  <span class="cursiva">Herramientas BI: Comparando las Mejores Opciones.</span>
+  Aprender Big Data.
+  <a href="https://aprenderbigdata.com/herramientas-bi/" target="_blank">
+    https://aprenderbigdata.com/herramientas-bi/
+  </a>
+  <br /><br />
+  Heer, J., & Bostock, M. (2010).
+  <span class="cursiva"
+    >Crowdsourcing graphical perception: using mechanical turk to assess
+    visualization design. Proceedings of the SIGCHI Conference on Human Factors
+    in Computing Systems, 203-212.</span
+  >
+  <a href="https://doi.org/10.1145/1753326.1753357" target="_blank">
+    https://doi.org/10.1145/1753326.1753357
+  </a>
+  <br /><br />
+  Koehrsen, W. (2019). The Next Level of Data Visualization in Python.
+  <span class="cursiva">Towards Data Science. </span>
+  <a
+    href="https://towardsdatascience.com/the-next-level-of-data-visualization-in-python-dd6e99039d5e"
+    target="_blank"
+  >
+    https://towardsdatascience.com/the-next-level-of-data-visualization-in-python-dd6e99039d5e
+  </a>
+  <br /><br />
+  López Toledo, E. (2017). Gestión de Mantenimientos en la nube mediante Google.
+  <span class="cursiva"
+    >Revista Iberoamericana de Producción Académica y Gestión Educativa,
+    4(8).</span
+  >
+  <a
+    href="https://www.pag.org.mx/index.php/PAG/article/view/690"
+    target="_blank"
+  >
+    https://www.pag.org.mx/index.php/PAG/article/view/690
+  </a>
+  <br /><br />
+  Manrique Rojas, E. (2020). Machine Learning: análisis de lenguajes de
+  programación y herramientas para desarrollo.
+  <span class="cursiva"
+    >Revista Ibérica de Sistemas e Tecnologias de Informação, (E28),
+    586-599.</span
+  >
+  <br /><br />
+  Palma Kuhl, C., Capp, E., & Henrique Nienov, O. (2021). Google apps: Drive,
+  Slides, Forms, Docs e Sheets.
+  <span class="cursiva"
+    >Estrategias didáticas para atividades remotas, 47-58.</span
+  >
+  <br /><br />
+  Rodríguez Ojeda, L. (2016).
+  <span class="cursiva"
+    >Python Programación. Escuela Superior Politécnica del Litoral.
+  </span>
+  <br /><br />
+  Rosa Urrutia, V. I., & Rivera Pleitez, J. G. (2016). Big Data, análisis de
+  datos en la nube. <span class="cursiva">Entorno, (61), 17–24.</span>
+  <a
+    href="https://biblioteca2.utec.edu.sv/sitios/entorno/index.php/entorno/article/view/493"
+    target="_blank"
+  >
+    https://biblioteca2.utec.edu.sv/sitios/entorno/index.php/entorno/article/view/493
+  </a>
+  <br /><br />
+  Strauss, L. (2023).
+  <span class="cursiva"
+    >Google Sheets vs. Excel: Which is right for you? [2023].</span
+  >
+  Zapier.
+  <a href="https://zapier.com/blog/google-sheets-vs-excel/" target="_blank">
+    https://zapier.com/blog/google-sheets-vs-excel/
+  </a>
+  <br /><br />
+  Urbina, V. (2018).
+  <span class="cursiva"
+    >Los límites de google sheets: macro para monitorear el tamaño de un
+    archivo. </span
+  >Fditf.
+  <a
+    href="https://www.fditf.com/bi/google-sheets/los-limites-de-googlesheets-macro-para-monitorear-el-tamano-de-un-archivo/"
+    target="_blank"
+  >
+    https://www.fditf.com/bi/google-sheets/los-limites-de-googlesheets-macro-para-monitorear-el-tamano-de-un-archivo/
+  </a>
+  <br /><br />
+  Yépez Palacios, M. B. (2020).
+  <span class="cursiva"
+    >Analítica De Datos Aplicada a la Estimación y Predicción de Ventas para la
+    Empresa Textil Saga de la Ciudad de Atuntaqui Utilizando Qlik Sense</span
+  >
+  [Tesis Doctoral]. Pontificia Universidad Católica del Ecuador Sede Ibarra.
+  <br /><br />
+</div>
